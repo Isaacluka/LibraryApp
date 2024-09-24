@@ -1,0 +1,141 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 7rem;
+    scroll-behavior: smooth;
+    font-family: 'Helvetica', sans-serif;    
+}                                            
+
+body{
+    width: 100%;  
+    height: 100vh;
+    background-color: #3836bd;
+    font-family: "Montserrat", "sans-serif";
+    font-optical-sizing: auto;
+    font-style: normal;
+    color: white;
+}
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-weight: 100;
+    font-size: 8rem;
+}
+.libraryPage{
+    border: 2rem solid red;
+}  
+
+::backdrop{
+    background-color: white;
+    opacity: .4;
+}
+
+dialog{
+    background-color: #4846ce;
+}
+
+dialog[open]{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    border: .2rem solid #554fef;
+    border-radius: 2rem;
+    padding: 4rem;
+    margin: 5rem;
+    font-size: 2rem;
+}
+/*.form_div{
+    border: 2rem solid orangered;
+    border-radius: 2rem;
+}*/
+form{
+    /*display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 50px 50px 50px;*/
+    align-items: center;
+    justify-content: center;
+}
+fieldset{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+dialog[open] input{
+    border: .2rem solid #554fef;
+    height: 30px;
+    width: 90px;
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2rem;
+    
+    /*border: 2rem solid #554fef;   */ 
+}
+dialog[open] label{
+    color: white;
+    font-size: 1.5rem;
+}
+.title{
+    width: 80%;
+}
+#title{
+    width: 80%;
+}
+dialog[open] input#author{
+    width: 250px;
+    flex-grow: 2;
+    border: .2rem solid #554fef;
+}
+/*.pages{
+}
+
+.read{
+    border: .2rem solid #554fef;
+}
+/*#submit{
+    grid-column: 1/3;
+    border: .2rem solid white;
+    display: grid;
+    justify-content: stretch;
+}*/
+button{
+    color: white;
+    padding: 2rem 6rem;
+    background: #f37500;
+    border-radius: 2rem; 
+}
+.bookCards{
+    /*display: flex;
+    flex-direction: row;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    margin-top: 20px;
+   
+}
+.bookCard{
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    border: .2rem solid #f37500;
+    border-radius: .2rem;
+    margin: 10px;
+    box-shadow: 0 4px 20px #f37500;
+    width: 350px;
+}
