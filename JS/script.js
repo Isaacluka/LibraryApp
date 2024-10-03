@@ -13,64 +13,75 @@ const bookCards = document.querySelector('.bookCards');
 
 const myLibrary = [];
 
-function Book(title, author, pages, read_status) {
+function Book(title, author, pages, read) {
   // the constructor...
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read_status = read_status;
-  this.display = createCard(this.title, this.author, this.pages);
+  this.read = readInput.checked? true: read;//read_status;
+  this.display = function(title, author, pages, read){
+    const bookCard = document.createElement('div');
+    bookCard.className = 'bookCard';
+  
+    const cardTitle = document.createElement('h2');
+    cardTitle.textContent = this.title;
+  
+    const cardBody = document.createElement('h3');
+    cardBody.textContent = `${this.title} was written by ${this.author} and is ${this.pages} pages long.`;
+  
+    const btnDiv = document.createElement('div');
+    
+    const toggleRead = document.createElement('button');
+    
+    const rmvBtn = document.createElement('button');
+  
+    
+    rmvBtn.innerHTML= 'X <i class="fa-solid fa-x"></i>';
+    rmvBtn.setAttribute('style', 'color: white;');
+    toggleRead.innerHTML= readInput.checked? this.read: "Not Read";
+    console.log(this.read);
+  
+    btnDiv.appendChild(rmvBtn);
+    btnDiv.appendChild(toggleRead);
+  
+    bookCard.appendChild(cardTitle);
+    bookCard.appendChild(cardBody);
+    bookCard.appendChild(btnDiv);
+  
+    bookCards.appendChild(bookCard);
+  
+    rmvBtn.addEventListener("click", e => {
+      bookCards.removeChild(bookCard);}
+    );
+  }
 }
 
 function addBookToLibrary(title, author, pages, read) {
   var book = new Book(title, author, pages, read);
+  book.display();
   myLibrary.push(book);
   console.log(myLibrary);
   return;
 }
 
-function createCard(title, author, pages){
-  const bookCard = document.createElement('div');
-  bookCard.className = 'bookCard';
-
-  const cardTitle = document.createElement('h2');
-  cardTitle.textContent = title;
-
-  const cardBody = document.createElement('h3');
-  cardBody.textContent = `${title} was written by ${author} and is ${pages} pages long.`;
-
-  const btnDiv = document.createElement('div');
-  const rmvBtn = document.createElement('button');
-  const toggleRead = document.createElement('button');
-
-  rmvBtn.innerHTML= '<i class="fa-solid fa-x"></i>';
-  rmvBtn.setAttribute('style', 'color: white;');
 
 
-  //btnDiv.appendChild(rmvBtn);
-  //btnDiv.appendChild(toggleRead);
 
-  bookCard.appendChild(cardTitle);
-  bookCard.appendChild(cardBody);
-  bookCard.appendChild(btnDiv);
-
-  //return bookCard;
-  bookCards.appendChild(bookCard);
-}
-
-function displayBooks(){
+/*function deleteBook(){
   myLibrary.forEach(book =>{
-    book.display();
-    console.log(book.title);
-  })
+    //rmvBtn.addEventListener('click', () =>{
+      //myLibrary.pop(book);    
+    //})
+  //})
+}*/
 
-}
 
-addBookToLibrary("The Richest Man in Babylon", "George S. Clason", 184, "on");
-addBookToLibrary("Good to Great", "Jim Collin", 320, "on");
-addBookToLibrary("Keys to The Deeper Life", "A. W. Tozer", 32, "on");
-addBookToLibrary("21 Irrefutable Laws of Leadership", "John C. Maxwell", 336, "on");
-addBookToLibrary("The Crucified Life", "A. W. Tozer", 224, "on");
+
+addBookToLibrary("The Richest Man in Babylon", "George S. Clason", 184, "true");
+addBookToLibrary("Good to Great", "Jim Collin", 320, "true");
+addBookToLibrary("Keys to The Deeper Life", "A. W. Tozer", 32, "true");
+addBookToLibrary("21 Irrefutable Laws of Leadership", "John C. Maxwell", 336, "true");
+addBookToLibrary("The Crucified Life", "A. W. Tozer", 224, "true");
 
 
 // Dialog Tag Code
@@ -96,6 +107,4 @@ cancelBtn.addEventListener('click', e =>{
   e.preventDefault();
   dialog.close();
 })
-
-
 
