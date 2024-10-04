@@ -18,7 +18,7 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = readInput.checked? true: read;//read_status;
+  this.read = readInput.checked? true: false;//read_status;
   this.display = function(title, author, pages, read){
     const bookCard = document.createElement('div');
     bookCard.className = 'bookCard';
@@ -30,15 +30,19 @@ function Book(title, author, pages, read) {
     cardBody.textContent = `${this.title} was written by ${this.author} and is ${this.pages} pages long.`;
   
     const btnDiv = document.createElement('div');
+    btnDiv.setAttribute('style', 'display: flex;');
     
-    const toggleRead = document.createElement('button');
+    const toggleRead = document.createElement('div');
+    toggleRead.setAttribute('style', 'border:.2rem solid #f37500; border-radius: 1rem; font-size: 16px; align-content: centre; padding: .5rem;');
+    //toggleRead.setAttribute('style',  'font-size:24px;');
     
-    const rmvBtn = document.createElement('button');
+    const rmvBtn = document.createElement('div');
   
     
-    rmvBtn.innerHTML= 'X <i class="fa-solid fa-x"></i>';
+    rmvBtn.innerHTML= '<i class="material-icons" style="font-size:36px;color:#f37500">delete</i>' //'X <i class="fa-solid fa-x"></i>';
     rmvBtn.setAttribute('style', 'color: white;');
-    toggleRead.innerHTML= readInput.checked? this.read: "Not Read";
+    rmvBtn.style.cursor = 'pointer';
+    toggleRead.innerHTML= readInput.checked? 'Read': "Not Read";
     console.log(this.read);
   
     btnDiv.appendChild(rmvBtn);

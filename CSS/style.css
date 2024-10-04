@@ -5,8 +5,11 @@
     text-decoration: none;
     border: none;
     outline: none;
-    scroll-behavior: smooth;
-    
+    scroll-behavior: smooth;  
+}
+:root{
+    --bg_color: #000000;
+    --secondaryColor: ;
 }
 html{
     font-size: 62.5%;
@@ -21,8 +24,10 @@ body{
     margin: 0;
     width: 100%;  
     height: 100vh;
-    background-color: #3836bd;
-    font-family: "Montserrat", "sans-serif";
+    background-color: var(--bg_color);/*#3836bd;*/
+    font-family: "Montserrat", "Old Standard TT", "sans-serif";
+    font-weight: 400;
+    font-style: normal;
     font-optical-sizing: auto;
     font-style: normal;
     color: white;
@@ -36,10 +41,8 @@ body{
 h1{
     font-weight: 100;
     font-size: 8rem;
+    font-family: "Charmonman";
 }
-.libraryPage{
-    border: 2rem solid red;
-}  
 
 ::backdrop{
     background-color: white;
@@ -47,14 +50,14 @@ h1{
 }
 
 dialog{
-    background-color: #4846ce;
+    background-color: #000000/*#4846ce;*/
 }
 
 dialog[open]{
     display: flex;
     justify-self: center;
     align-self: center;
-    border: .2rem solid #554fef;
+    border: .2rem solid #f37500/*#554fef*/;
     border-radius: 2rem;
     padding: 4rem;
     margin: 5rem;
@@ -78,7 +81,7 @@ fieldset{
     align-items: center;
 }
 dialog[open] input{
-    border: .2rem solid #554fef;
+    border: .2rem solid #000000;/* #554fef;*/
     height: 30px;
     width: 90px;
     border-radius: 10px;
@@ -87,6 +90,11 @@ dialog[open] input{
     
     /*border: 2rem solid #554fef;   */ 
 }
+dialog[open] input:focus-visible{
+    border: .2rem solid #f37500;
+
+}
+
 dialog[open] label{
     color: white;
     font-size: 1.5rem;
@@ -100,7 +108,7 @@ dialog[open] label{
 dialog[open] input#author{
     width: 250px;
     flex-grow: 2;
-    border: .2rem solid #554fef;
+    /*border: .2rem solid #f37500; #554fef;*/
 }
 /*.pages{
 }
@@ -139,4 +147,8 @@ button{
     margin: 10px;
     box-shadow: 0 4px 20px #f37500;
     width: 350px;
+}
+toggleRead{
+    color: white;
+    border: .2rem solid #f37500;
 }
