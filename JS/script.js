@@ -43,6 +43,9 @@ function Book(title, author, pages, read) {
     rmvBtn.setAttribute('style', 'color: white;');
     rmvBtn.style.cursor = 'pointer';
     toggleRead.innerHTML= readInput.checked? 'Read': "Not Read";
+    toggleRead.addEventListener("click", e=>{
+      toggleRead.innerHTML = this.read? "Not Read": "Read";
+    })
     console.log(this.read);
   
     btnDiv.appendChild(rmvBtn);
@@ -68,19 +71,6 @@ function addBookToLibrary(title, author, pages, read) {
   return;
 }
 
-
-
-
-/*function deleteBook(){
-  myLibrary.forEach(book =>{
-    //rmvBtn.addEventListener('click', () =>{
-      //myLibrary.pop(book);    
-    //})
-  //})
-}*/
-
-
-
 addBookToLibrary("The Richest Man in Babylon", "George S. Clason", 184, "true");
 addBookToLibrary("Good to Great", "Jim Collin", 320, "true");
 addBookToLibrary("Keys to The Deeper Life", "A. W. Tozer", 32, "true");
@@ -92,7 +82,6 @@ addBookToLibrary("The Crucified Life", "A. W. Tozer", 224, "true");
 NewBookBtn.addEventListener('click', () =>{
   dialog.showModal();
 })
-
 
 addBtn.addEventListener('click', e =>{
   e.preventDefault();
